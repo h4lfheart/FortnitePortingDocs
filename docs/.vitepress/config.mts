@@ -1,5 +1,9 @@
 import { defineConfig } from 'vitepress'
 
+const siteUrl = 'https://docs.fortniteporting.app'
+const brandColor = '#953bf8'
+const socialImage = `${siteUrl}/favicon.png`
+
 export default defineConfig({
   title: 'Fortnite Porting Docs',
   description: 'Documentation for Fortnite Porting',
@@ -7,8 +11,41 @@ export default defineConfig({
   cleanUrls: true,
 
   head: [
-    ['link', { rel: 'icon', type: 'image/png', href: '/favicon.png' }]
+    ['link', { rel: 'icon', type: 'image/png', href: '/favicon.png' }],
+
+    ['meta', { name: 'theme-color', content: brandColor }],
+
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:site_name', content: 'Fortnite Porting Docs' }],
+    ['meta', { property: 'og:image', content: socialImage }],
+    ['meta', { property: 'og:image:alt', content: 'Fortnite Porting' }],
+    ['meta', { property: 'og:image:type', content: 'image/png' }],
+
+    ['meta', { name: 'twitter:card', content: 'summary' }],
+    ['meta', { name: 'twitter:site', content: '@FortnitePorting' }],
+    ['meta', { name: 'twitter:image', content: socialImage }],
+    ['meta', { name: 'twitter:image:alt', content: 'Fortnite Porting' }]
   ],
+
+  transformPageData(pageData) {
+    const title = pageData.title
+      ? pageData.title
+      : 'Fortnite Porting Docs'
+    const description =
+      pageData.description || 'Documentation for Fortnite Porting'
+    const url = `${siteUrl}${pageData.relativePath
+      .replace(/(^|\/)index\.md$/, '$1')
+      .replace(/\.md$/, '')}`
+
+    pageData.frontmatter.head ??= []
+    pageData.frontmatter.head.push(
+      ['meta', { property: 'og:title', content: title }],
+      ['meta', { property: 'og:description', content: description }],
+      ['meta', { property: 'og:url', content: url }],
+      ['meta', { name: 'twitter:title', content: title }],
+      ['meta', { name: 'twitter:description', content: description }]
+    )
+  },
 
   themeConfig: {
     logo: '/favicon.png',

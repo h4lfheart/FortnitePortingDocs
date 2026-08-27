@@ -1,5 +1,6 @@
 ---
 title: How to add docs
+description: Simple steps for adding or editing documentation pages
 ---
 
 # How to add docs

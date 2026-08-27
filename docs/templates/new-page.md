@@ -1,5 +1,6 @@
 ---
 title: Page Title
+description: One sentence explaining what this page covers
 ---
 
 # Page Title
