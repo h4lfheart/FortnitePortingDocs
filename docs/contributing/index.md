@@ -5,16 +5,14 @@ description: Simple steps for adding or editing documentation pages
 
 # How to add docs
 
-Docs are plain text files written in Markdown. You can edit them on GitHub in your browser or locally in an IDE of your choice.
+Docs are Markdown files. Edit them on GitHub or locally in any editor.
 
 ## Edit an existing page
 
 1. Open the page on this site
-2. Scroll to the bottom and click **Edit this page**
-3. Make your changes in GitHub
-4. Click **Commit changes…** and open a pull request
-
-That's it for small fixes (typos, clearer wording, extra steps).
+2. Click **Edit this page** at the bottom
+3. Make your changes
+4. Commit and open a pull request
 
 ## Add a new page
 
@@ -29,15 +27,13 @@ That's it for small fixes (typos, clearer wording, extra steps).
 
 ### 2. Copy the template
 
-1. Open [`docs/templates/new-page.md`](https://github.com/h4lfheart/FortnitePortingDocs/blob/main/docs/templates/new-page.md)
-2. Create a copy of this file in a new folder
-3. Name it in kebab case (lowercase words and hyphens), for example `exporting-skins.md`
+1. Copy [`docs/templates/new-page.md`](https://github.com/h4lfheart/FortnitePortingDocs/blob/main/docs/templates/new-page.md)
+2. Put it in the right folder
+3. Name it in kebab-case, e.g. `exporting-skins.md`
 
 ### 3. Fill in the page
 
-Replace the placeholder title, description, and body. Use the formatting cheatsheet below if needed.
-
-The sidebar is **automatic** — new pages appear based on folder structure. Set `title` in frontmatter for the sidebar label. Use optional `order` to control sort position (lower numbers first):
+Set the header `title` (sidebar label) and `description`. Optional `order` sorts pages (lower values show up first):
 
 ```md
 ---
@@ -47,18 +43,30 @@ order: 1
 ---
 ```
 
-Files in `docs/templates/` and any file prefixed with `_` are excluded from the site.
+The sidebar updates from the folder structure. Files in `docs/templates/` and names starting with `_` are excluded.
 
-### 4. Add images (optional)
+### 4. Sidebar groups
 
-1. Put the image file in `docs/public/` (for example `docs/public/app/skin-screenshot.png`)
-2. In your page, write:
+**Nested group:** add a subfolder (e.g. `docs/blender/nodes/attributes/`).
+
+**Sibling section:** add `sidebar.config.json` in the folder:
+
+```json
+{
+  "section": true
+}
+```
+
+That puts the folder next to its parent in the sidebar (e.g. **Nodes** beside **Blender**).
+
+### 5. Add images (optional)
+
+1. Drop the file in `docs/public/` (e.g. `docs/public/app/skin-screenshot.png`)
+2. Reference it as:
 
 ```md
 ![Skin Export Screenshot](/app/skin-screenshot.png)
 ```
-
-The path starts with `/` and matches the file name in `public`.
 
 ## Formatting cheatsheet
 

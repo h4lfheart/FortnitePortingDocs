@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress'
 import { withSidebar } from 'vitepress-sidebar'
+import { promoteSections } from './promoteSections.mts'
 
 const siteUrl = 'https://docs.fortniteporting.app'
 const brandColor = '#953bf8'
@@ -127,4 +128,10 @@ const vitePressOptions = {
   }
 }
 
-export default defineConfig(withSidebar(vitePressOptions, sidebarConfigs))
+const config = withSidebar(vitePressOptions, sidebarConfigs)
+config.themeConfig.sidebar = promoteSections(
+  config.themeConfig.sidebar,
+  sidebarConfigs
+)
+
+export default defineConfig(config)
