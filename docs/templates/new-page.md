@@ -25,3 +25,11 @@ Optional advice that helps the reader.
 ::: warning Warning
 Call out something easy to mess up.
 :::
+
+<!--
+When you are done:
+1. Save this file under docs/app/, docs/blender/, or docs/unreal/
+   with a lowercase-hyphen name (example: exporting-skins.md)
+2. Set title and description in frontmatter — the sidebar updates automatically
+3. See /contributing/ for the full walkthrough
+-->

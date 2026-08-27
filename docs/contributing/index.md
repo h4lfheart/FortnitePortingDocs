@@ -29,7 +29,7 @@ That's it for small fixes (typos, clearer wording, extra steps).
 
 ### 2. Copy the template
 
-1. Open [`docs/templates/new-page.md`](https://github.com/h4lfheart/FortnitePortingDocs/blob/master/docs/templates/new-page.md)
+1. Open [`docs/templates/new-page.md`](https://github.com/h4lfheart/FortnitePortingDocs/blob/main/docs/templates/new-page.md)
 2. Create a copy of this file in a new folder
 3. Name it in kebab case (lowercase words and hyphens), for example `exporting-skins.md`
 
@@ -37,19 +37,19 @@ That's it for small fixes (typos, clearer wording, extra steps).
 
 Replace the placeholder title, description, and body. Use the formatting cheatsheet below if needed.
 
-### 4. Add it to the sidebar
+The sidebar is **automatic** — new pages appear based on folder structure. Set `title` in frontmatter for the sidebar label. Use optional `order` to control sort position (lower numbers first):
 
-Open [`docs/.vitepress/config.mts`](https://github.com/h4lfheart/FortnitePortingDocs/blob/master/docs/.vitepress/config.mts) and add **one line** under the matching section.
-
-Example: new application page at `docs/app/exporting-skins.md`:
-
-```ts
-{ text: 'Exporting Skins', link: '/app/exporting-skins' },
+```md
+---
+title: Getting Started
+description: One sentence about this page
+order: 1
+---
 ```
 
-Put that line next to the other items in the `'/app/'` sidebar list.
+Files in `docs/templates/` and any file prefixed with `_` are excluded from the site.
 
-### 5. Add images (optional)
+### 4. Add images (optional)
 
 1. Put the image file in `docs/public/` (for example `docs/public/app/skin-screenshot.png`)
 2. In your page, write:

@@ -1,14 +1,56 @@
 import { defineConfig } from 'vitepress'
+import { withSidebar } from 'vitepress-sidebar'
 
 const siteUrl = 'https://docs.fortniteporting.app'
 const brandColor = '#953bf8'
 const socialImage = `${siteUrl}/favicon.png`
 
-export default defineConfig({
+const sharedSidebarOptions = {
+  documentRootPath: 'docs',
+  useTitleFromFrontmatter: true,
+  includeRootIndexFile: true,
+  includeFolderIndexFile: true,
+  hyphenToSpace: true,
+  capitalizeFirst: true,
+  collapsed: false,
+  excludeByGlobPattern: ['templates/**'],
+  manualSortFileNameByPriority: ['index.md'],
+  sortMenusByFrontmatterOrder: true
+}
+
+const sidebarConfigs = [
+  {
+    ...sharedSidebarOptions,
+    scanStartPath: 'app',
+    resolvePath: '/app/',
+    rootGroupText: 'Application'
+  },
+  {
+    ...sharedSidebarOptions,
+    scanStartPath: 'blender',
+    resolvePath: '/blender/',
+    rootGroupText: 'Blender'
+  },
+  {
+    ...sharedSidebarOptions,
+    scanStartPath: 'unreal',
+    resolvePath: '/unreal/',
+    rootGroupText: 'Unreal'
+  },
+  {
+    ...sharedSidebarOptions,
+    scanStartPath: 'contributing',
+    resolvePath: '/contributing/',
+    rootGroupText: 'Contributing'
+  }
+]
+
+const vitePressOptions = {
   title: 'Fortnite Porting Docs',
   description: 'Documentation for Fortnite Porting',
   lastUpdated: true,
   cleanUrls: true,
+  srcExclude: ['templates/**'],
 
   head: [
     ['link', { rel: 'icon', type: 'image/png', href: '/favicon.png' }],
@@ -58,47 +100,6 @@ export default defineConfig({
       { text: 'Contributing', link: '/contributing/' }
     ],
 
-    sidebar: {
-      '/app/': [
-        {
-          text: 'Application',
-          items: [
-            { text: 'Overview', link: '/app/' }
-          ]
-        }
-      ],
-      '/blender/': [
-        {
-          text: 'Blender',
-          items: [
-            { text: 'Overview', link: '/blender/' }
-          ]
-        },
-        {
-          text: 'Nodes',
-          items: [
-            { text: 'Overview', link: '/blender/nodes/' }
-          ]
-        }
-      ],
-      '/unreal/': [
-        {
-          text: 'Unreal',
-          items: [
-            { text: 'Overview', link: '/unreal/' }
-          ]
-        }
-      ],
-      '/contributing/': [
-        {
-          text: 'Contributing',
-          items: [
-            { text: 'How to add docs', link: '/contributing/' }
-          ]
-        }
-      ]
-    },
-
     editLink: {
       pattern: 'https://github.com/h4lfheart/FortnitePortingDocs/edit/main/docs/:path',
       text: 'Edit this page'
@@ -121,7 +122,9 @@ export default defineConfig({
     ],
 
     footer: {
-      copyright: "© 2026 Fortnite Porting. All rights reserved."
+      copyright: '© 2026 Fortnite Porting. All rights reserved.'
     }
   }
-})
+}
+
+export default defineConfig(withSidebar(vitePressOptions, sidebarConfigs))
