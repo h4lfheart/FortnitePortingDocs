@@ -1,9 +1,12 @@
 node_modules
 docs/.vitepress/cache
 docs/.vitepress/dist
+
 .idea
 .github
 *.md
+
 !docs/**/*.md
+
 .env
 .env.*
