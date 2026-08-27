@@ -15,7 +15,7 @@ One or two sentences introducing the topic.
 ## Notes
 
 - Extra detail that does not need its own step
-- Links to related pages: [Blender Overview](/blender)
+- Links to related pages: [Blender Overview](/blender/)
 
 ::: tip Tip
 Optional advice that helps the reader.
