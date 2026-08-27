@@ -11,5 +11,6 @@ COPY . .
 RUN pnpm docs:build
 
 FROM nginx:alpine
+COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /app/docs/.vitepress/dist /usr/share/nginx/html
 EXPOSE 80
