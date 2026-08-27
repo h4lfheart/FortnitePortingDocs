@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress'
 import { withSidebar } from 'vitepress-sidebar'
+import type { SidebarSortItem } from 'vitepress-sidebar/types'
 import { promoteSections } from './promoteSections.mts'
 
 const siteUrl = 'https://docs.fortniteporting.app'
@@ -15,10 +16,28 @@ const sharedSidebarOptions = {
   includeFolderIndexFile: false,
   hyphenToSpace: true,
   capitalizeFirst: true,
-  collapsed: false,
+  collapsed: true,
   excludeByGlobPattern: ['templates/**'],
   manualSortFileNameByPriority: ['index.md'],
-  sortMenusByFrontmatterOrder: true
+  sortMenusByCustomFunction: (a: SidebarSortItem, b: SidebarSortItem) => {
+    const orderA = Number(a.frontmatter?.order)
+    const orderB = Number(b.frontmatter?.order)
+    const hasOrderA = Number.isFinite(orderA)
+    const hasOrderB = Number.isFinite(orderB)
+
+    if (hasOrderA && hasOrderB && orderA !== orderB) {
+      return orderA - orderB
+    }
+    if (hasOrderA !== hasOrderB) {
+      return hasOrderA ? -1 : 1
+    }
+
+    return (a.text ?? a.fileName).localeCompare(
+      b.text ?? b.fileName,
+      undefined,
+      { sensitivity: 'base' }
+    )
+  }
 }
 
 const sidebarConfigs = [
