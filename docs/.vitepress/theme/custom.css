@@ -19,6 +19,9 @@
     rgba(232, 121, 249, 0.45) 50%
   );
   --vp-home-hero-image-filter: blur(44px);
+
+  --vp-badge-tip-text: #16a34a;
+  --vp-badge-tip-bg: rgba(22, 163, 74, 0.14);
 }
 
 .dark {
@@ -33,4 +36,7 @@
     #c4a1ff 50%,
     #e879f9 100%
   );
+
+  --vp-badge-tip-text: #4ade80;
+  --vp-badge-tip-bg: rgba(74, 222, 128, 0.16);
 }

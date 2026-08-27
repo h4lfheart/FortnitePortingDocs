@@ -59,6 +59,10 @@ const vitePressOptions = {
   cleanUrls: true,
   srcExclude: ['templates/**'],
 
+  vite: {
+    publicDir: '../public'
+  },
+
   head: [
     ['link', { rel: 'icon', type: 'image/png', href: '/favicon.png' }],
 

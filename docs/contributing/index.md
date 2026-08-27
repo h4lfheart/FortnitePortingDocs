@@ -53,7 +53,7 @@ The sidebar updates from the folder structure. Files in `docs/templates/` and na
 
 ### 5. Add images (optional)
 
-1. Drop the file in `docs/public/` (e.g. `docs/public/app/skin-screenshot.png`)
+1. Drop the file in `public/` (e.g. `public/app/skin-screenshot.png`)
 2. Reference it as:
 
 ```md
