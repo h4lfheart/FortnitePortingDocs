@@ -1,6 +1,7 @@
 FROM node:22-alpine AS build
 WORKDIR /app
 
+RUN apk add --no-cache git
 RUN corepack enable && corepack prepare pnpm@10 --activate
 
 COPY package.json pnpm-lock.yaml ./
