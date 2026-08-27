@@ -51,6 +51,8 @@ The sidebar updates from the folder structure. Files in `docs/templates/` and na
 
 **Sibling section:** add `sidebar.config.json` with `"section": true` so the folder sits next to its parent (e.g. **Nodes** beside **Blender**).
 
+Section `index.md` pages can include `<SectionLinks />` to auto-list child pages (and sibling sections) from the sidebar.
+
 ### 5. Add images (optional)
 
 1. Drop the file in `public/` (e.g. `public/app/skin-screenshot.png`)
