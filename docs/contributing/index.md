@@ -3,7 +3,7 @@ title: How to add docs
 description: Simple steps for adding or editing documentation pages
 ---
 
-# How to add docs
+# Contributing
 
 Docs are Markdown files. Edit them on GitHub or locally in any editor.
 
@@ -47,17 +47,9 @@ The sidebar updates from the folder structure. Files in `docs/templates/` and na
 
 ### 4. Sidebar groups
 
-**Nested group:** add a subfolder (e.g. `docs/blender/nodes/attributes/`).
+**Nested group:** add a subfolder. The folder name is clickable (opens its `index.md`) and expands when it has children.
 
-**Sibling section:** add `sidebar.config.json` in the folder:
-
-```json
-{
-  "section": true
-}
-```
-
-That puts the folder next to its parent in the sidebar (e.g. **Nodes** beside **Blender**).
+**Sibling section:** add `sidebar.config.json` with `"section": true` so the folder sits next to its parent (e.g. **Nodes** beside **Blender**).
 
 ### 5. Add images (optional)
 

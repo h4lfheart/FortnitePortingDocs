@@ -9,8 +9,10 @@ const socialImage = `${siteUrl}/favicon.png`
 const sharedSidebarOptions = {
   documentRootPath: 'docs',
   useTitleFromFrontmatter: true,
-  includeRootIndexFile: true,
-  includeFolderIndexFile: true,
+  useFolderTitleFromIndexFile: true,
+  useFolderLinkFromIndexFile: true,
+  includeRootIndexFile: false,
+  includeFolderIndexFile: false,
   hyphenToSpace: true,
   capitalizeFirst: true,
   collapsed: false,
@@ -24,25 +26,29 @@ const sidebarConfigs = [
     ...sharedSidebarOptions,
     scanStartPath: 'app',
     resolvePath: '/app/',
-    rootGroupText: 'Application'
+    rootGroupText: 'Application',
+    rootGroupLink: 'index.md'
   },
   {
     ...sharedSidebarOptions,
     scanStartPath: 'blender',
     resolvePath: '/blender/',
-    rootGroupText: 'Blender'
+    rootGroupText: 'Blender',
+    rootGroupLink: 'index.md'
   },
   {
     ...sharedSidebarOptions,
     scanStartPath: 'unreal',
     resolvePath: '/unreal/',
-    rootGroupText: 'Unreal'
+    rootGroupText: 'Unreal',
+    rootGroupLink: 'index.md'
   },
   {
     ...sharedSidebarOptions,
     scanStartPath: 'contributing',
     resolvePath: '/contributing/',
-    rootGroupText: 'Contributing'
+    rootGroupText: 'Contributing',
+    rootGroupLink: 'index.md'
   }
 ]
 

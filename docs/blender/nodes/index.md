@@ -1,7 +1,6 @@
 ---
-title: Overview
+title: Nodes
 description: Material nodes and the Blender material system for Fortnite Porting
-order: 1
 ---
 
 # Nodes

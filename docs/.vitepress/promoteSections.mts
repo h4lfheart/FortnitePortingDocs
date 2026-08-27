@@ -83,7 +83,7 @@ function promoteRootGroup(
   scanStartPath: string
 ): SidebarItem[] {
   const children = rootGroup.items ?? []
-  if (children.length === 0) return [rootGroup]
+  if (children.length === 0) return [stripEmptyItems(rootGroup)]
 
   const sectionFolders = listSectionFolders(docsRoot, scanStartPath)
   if (sectionFolders.length === 0) return [rootGroup]
@@ -95,9 +95,7 @@ function promoteRootGroup(
   for (const folderName of sectionFolders) {
     const match = children.find(
       (child) =>
-        !claimed.has(child) &&
-        child.items?.length &&
-        itemBelongsToFolder(child, folderName)
+        !claimed.has(child) && itemBelongsToFolder(child, folderName)
     )
 
     if (match) {
@@ -110,15 +108,22 @@ function promoteRootGroup(
     if (!claimed.has(child)) kept.push(child)
   }
 
-  if (promoted.length === 0) return [rootGroup]
+  if (promoted.length === 0) return [stripEmptyItems(rootGroup)]
 
-  return [
-    {
-      ...rootGroup,
-      items: kept
-    },
-    ...promoted
-  ]
+  const parent = stripEmptyItems({
+    ...rootGroup,
+    ...(kept.length > 0 ? { items: kept } : {})
+  })
+
+  if (!kept.length) delete parent.items
+
+  return [parent, ...promoted.map(stripEmptyItems)]
+}
+
+function stripEmptyItems(item: SidebarItem): SidebarItem {
+  if (!item.items || item.items.length > 0) return item
+  const { items: _unused, ...rest } = item
+  return rest
 }
 
 export function promoteSections(
@@ -139,8 +144,11 @@ export function promoteSections(
     const config = byResolvePath.get(resolvePath)
     const items = entry.items ?? []
 
-    if (!config?.scanStartPath || items.length !== 1 || !items[0]?.items) {
-      result[resolvePath] = entry
+    if (!config?.scanStartPath || items.length !== 1 || !items[0]) {
+      result[resolvePath] = {
+        ...entry,
+        items: items.map(stripEmptyItems)
+      }
       continue
     }
 

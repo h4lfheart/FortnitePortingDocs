@@ -2,7 +2,7 @@
 
 Documentation site for [Fortnite Porting](https://fortniteporting.app), built with [VitePress](https://vitepress.dev/).
 
-## Preview locally
+## Preview
 
 Make sure [pnpm](https://pnpm.io/) is installed, then run the commands below:
 
