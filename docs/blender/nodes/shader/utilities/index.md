@@ -1,12 +1,14 @@
 ---
 title: Utilities
 description: Helper node groups used inside the shader groups.
-order: 60
+order: 70
 ---
 
 # Utilities
 
 Helper node groups used inside the shader groups.
+
+<!-- TODO: Mention/link corresponding UE nodes for groups that are UE recreations -->
 
 - [FPv4 3 Color Lerp](/blender/nodes/shader/utilities/fpv4-3-color-lerp)
 - [FPv4 Anisotropic Shading](/blender/nodes/shader/utilities/fpv4-anisotropic-shading)
