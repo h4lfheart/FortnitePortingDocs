@@ -5,7 +5,7 @@ description: Common fixes to help get past the black hole screen.
 
 # How to get past the "Black Hole" screen
 
-![Black Hole Screen](/app/black-hole.png)
+![Black Hole Screen](/app/black-hole/black-hole.png)
 
 ## Common Fixes:
 
