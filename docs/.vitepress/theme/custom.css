@@ -34,3 +34,7 @@
     #e879f9 100%
   );
 }
+
+.vp-doc img {
+  border-radius: 12px;
+}
