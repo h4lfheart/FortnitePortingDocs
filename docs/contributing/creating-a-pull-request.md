@@ -16,7 +16,7 @@ Best for small edits to one page.
 2. Click **Edit this Page** at the bottom
 3. Make your changes on GitHub
 4. Click **Commit Changes** and fill in a short commit message
-5. Open a pull request against `main` and describe what you changed
+5. Open a pull request against `main` using the title and description format below
 
 ## From Your Computer
 
@@ -53,14 +53,32 @@ git push -u origin your-change-name
 ```
 
 6. Open GitHub and create a pull request into `main`
-7. Write a short summary of what changed and why
+7. Fill in the title and description using the format below
 
-## Tips
+## Pull Request Conventions
 
-- Keep each pull request focused on one topic
-- Double-check links and images in the local preview before submitting
-- Respond to review comments if maintainers ask for changes
+### Title
 
-::: tip Waiting on Review
-Pull requests are reviewed when someone is available. Small, clearer changes are easier to merge quickly.
-:::
+Use a short [conventional commit](https://gist.github.com/qoomon/5dfcdf8eec66a051ecd85625518cfd13) prefix, then a clear name for what changed:
+
+| Prefix | When to use | Example |
+| --- | --- | --- |
+| `docs:` | New or updated documentation | `docs: Black Hole Page` |
+| `fix:` | Corrects wrong or broken docs | `fix: Blender plugin sync steps` |
+| `refactor:` | Restructures docs without changing meaning | `refactor: Contributing section layout` |
+
+Keep the title specific. Prefer `docs: Locating Blender` over `docs: Update page`.
+
+### Description
+
+Write enough for a maintainer to understand the change without opening every file.
+
+- What you added, changed, or removed
+- Which pages or sections are affected
+- Why the change was needed, if it is not obvious
+
+Example:
+
+```md
+Adds a Black Hole page under Application with debugging steps and a screenshot.
+```
