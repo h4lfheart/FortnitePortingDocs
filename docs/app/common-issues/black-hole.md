@@ -12,7 +12,7 @@ description: Common fixes to help get past the black hole screen.
 - If a new Fortnite update was released recently, Mappings and AES Keys may not be available yet, please be patient.
 
 ::: warning Warning
-These fixes are not guaranteed to stop the black hole screen from appearing. If you continue to have issues, please make a support ticket in the [Discord Server](https://discord.gg/FortnitePorting)
+These fixes are not guaranteed to stop the black hole screen from appearing. If you continue to have issues, please make a post in the [`#app-support`](https://discord.com/channels/866821077769781249/1482185410556854312) channel in the [Discord Server](https://discord.gg/FortnitePorting)
 :::
 
 ![Black Hole Screen](/app/black-hole/black-hole.png)
