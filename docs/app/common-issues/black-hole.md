@@ -5,7 +5,7 @@ description: Common fixes to help get past the black hole screen.
 
 # Black Hole Screen
 
-- Make sure your Fortnite Porting is updated to the [latest release](https://github.com/h4lfheart/FortnitePorting/releases/latest)
+- Make sure your Fortnite Porting is updated to <LatestRelease />
 - Make sure your Fortnite Version is up to date. 
   - If you are on the most recent update of Fortnite, verify your files in the Epic Games Launcher.
 - Increase your `Request Timeout Length` option in Fortnite Porting's settings to a larger value, like `240 seconds`.
